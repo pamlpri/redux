@@ -50,7 +50,11 @@
                 return newState; // 복제한 결과를 반환
             }
             // 최초 store 생성
-            var store = Redux.createStore(reducer);
+            // redux dev tool 적용
+            var store = Redux.createStore(
+                reducer,
+                window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+            );
             console.log(store.getState());
             function red() {
                 var state = store.getState();
